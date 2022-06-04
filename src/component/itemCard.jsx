@@ -5,10 +5,13 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/cart";
 
 export default function ItemCard(props) {
   const { data } = props;
   const { title, price } = data;
+  const dispatch = useDispatch();
   return (
     <Card sx={{ width: "20vh", margin: "1vh", height: "20vh" }}>
       <CardContent>
@@ -21,7 +24,7 @@ export default function ItemCard(props) {
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom></Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" onClick={() => {}}>
+        <Button size="small" onClick={() => dispatch(addItem(data))}>
           Add
         </Button>
       </CardActions>
