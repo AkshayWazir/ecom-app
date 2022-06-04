@@ -2,6 +2,8 @@
   height: 92vh;
   width: 100vw;
   background-color: aqua;
+  display: flex;
+  flex-direction: row;
 }
 
 .cart-container {

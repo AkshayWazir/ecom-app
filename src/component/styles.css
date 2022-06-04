@@ -11,6 +11,7 @@
 .app-logo {
   height: 6vh;
   width: 8vw;
+  cursor: pointer;
 }
 
 .cart-logo {
@@ -22,6 +23,7 @@
   position: relative;
   margin-right: 5vh;
   background-color: white;
+  cursor: pointer;
 }
 
 .cart-counter {
