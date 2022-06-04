@@ -1,0 +1,11 @@
+.dashboard-container {
+  height: 92vh;
+  width: 100vw;
+  background-color: aqua;
+}
+
+.cart-container {
+  height: 92vh;
+  width: 100vw;
+  background-color: bisque;
+}

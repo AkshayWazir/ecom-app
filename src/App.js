@@ -1,12 +1,17 @@
+import React from "react";
 import "./App.css";
-import { BrowserRouter as Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { Header } from "./component";
+import { Dashboard, Cart } from "./screens";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Routes></Routes>
-    </div>
+    <React.Fragment>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </React.Fragment>
   );
 }
-
-export default App;
