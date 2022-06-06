@@ -7,11 +7,25 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/cart";
+import { useSelector } from "react-redux";
 
 export default function ItemCard(props) {
   const { data } = props;
   const { title, price } = data;
   const dispatch = useDispatch();
+  const { cartItems } = useSelector((state) => state.cart);
+
+  function getPrice() {
+    const count = cartItems.reduce((a, b) => {
+      if (b.id === data.id) {
+        return a + 1;
+      } else {
+        return a;
+      }
+    }, 0);
+    return count > 0 ? `${price} * ${count}` : price;
+  }
+
   return (
     <Card sx={{ width: "20vh", margin: "1vh", height: "20vh" }}>
       <CardContent>
@@ -19,7 +33,7 @@ export default function ItemCard(props) {
           {title}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          {price}
+          {getPrice()}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom></Typography>
       </CardContent>
